@@ -1,0 +1,8 @@
+C:\Users\ex\source\repos\MyPracticeWork\MyPracticeWork\bin\Debug\MyPracticeWork.exe.config
+C:\Users\ex\source\repos\MyPracticeWork\MyPracticeWork\bin\Debug\MyPracticeWork.exe
+C:\Users\ex\source\repos\MyPracticeWork\MyPracticeWork\bin\Debug\MyPracticeWork.pdb
+C:\Users\ex\source\repos\MyPracticeWork\MyPracticeWork\obj\Debug\MyPracticeWork.csproj.AssemblyReference.cache
+C:\Users\ex\source\repos\MyPracticeWork\MyPracticeWork\obj\Debug\MyPracticeWork.csproj.SuggestedBindingRedirects.cache
+C:\Users\ex\source\repos\MyPracticeWork\MyPracticeWork\obj\Debug\MyPracticeWork.csproj.CoreCompileInputs.cache
+C:\Users\ex\source\repos\MyPracticeWork\MyPracticeWork\obj\Debug\MyPracticeWork.exe
+C:\Users\ex\source\repos\MyPracticeWork\MyPracticeWork\obj\Debug\MyPracticeWork.pdb
