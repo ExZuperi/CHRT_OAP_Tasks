@@ -14,7 +14,7 @@ namespace MyPracticeWork
     internal class Program
     {
         static void Main(string[] args) {
-            First_Practice.fifth_num();
+            Second_Practice.sixth_num();
             Console.ReadKey();
         }
     }
@@ -68,53 +68,24 @@ namespace MyPracticeWork
             double d = Convert.ToDouble(Console.ReadLine());
 
             double maxNum = Math.Max(Math.Max(a, b), Math.Max(c, d));
-
-            if (maxNum == a) {
-                if (a == b) {
-                    if (a == c) {
-                        if (a == d) {
-                            Console.WriteLine($"Рост всех учеников одинаков - {a}");
-                        } else {
-                            Console.WriteLine($"Рост всех учеников одинаков, кроме ученика d, рост самых высоких - {a}");
-                        }
-                    } else if (a == d) {
-                        Console.WriteLine($"Рост всех учеников одинаков, кроме ученика c, рост самых высоких - {a}");
-                    } else {
-                        Console.WriteLine($"Самые рослые ученики a и b, их рост - {a}");
-                    }
-                } else if (a == c) {
-                    if (a == d) {
-                        Console.WriteLine($"Рост всех учеников одинаков, кроме ученика b, рост самых высоких - {a}");
-                    } else {
-                        Console.WriteLine($"Самые рослые ученики a и c, их рост - {a}");
-                    }
-
-                } else if (a == d) {
-                    Console.WriteLine($"Самые рослые ученики a и d, их рост - {a}");
-                } else {
-                    Console.WriteLine($"Самый рослый ученик - ученик a, его рост - {a}");
-                }
-            } else if (maxNum == b) {
-                if (b == c) {
-                    if (b == d) {
-                        Console.WriteLine($"Рост всех учеников одинаков, кроме ученика a, рост самых высоких - {b}");
-                    }
-                } else if (b == d) {
-                    Console.WriteLine($"Самые рослые ученики - ученик b и d их рост - {b}");
-                } else {
-                    Console.WriteLine($"Самые рослый ученики b, его рост - {b}");
-                }
-            } else if (maxNum == c) {
-                if (c == d) {
-                    Console.WriteLine($"Самые рослые ученики - ученик c и d их рост - {c}");
-                } else {
-                    Console.WriteLine($"Самый рослый ученик - ученик c, его рост - {c}");
-                }
-            } else {
-                Console.WriteLine($"Самый рослый ученик - ученик d, его рост - {d}");
+            string s = "";
+            if ((a <= 0) || (b <= 0) || (c <= 0) || (d <= 0)) {
+                throw new ArgumentException($"Значения не мб <= 0, ваши - {a} {b} {c} {d}");
             }
+            if (maxNum == a) { //may use switch-case construction
+                s += "a ";
+            }
+            if (maxNum == b) {
+                s += "b ";
+            }
+            if (maxNum == c) {
+                s += "c ";
+            }
+            if (maxNum == d) {
+                s += "d ";
+            }
+            Console.WriteLine($"Самый высокий/е ученики - {s}с ростом {maxNum}");
 
-            Console.ReadKey();
         }
         internal static void second_num() {
             Console.WriteLine("Введите радиус круга");
@@ -125,13 +96,9 @@ namespace MyPracticeWork
             double girl_speed = Convert.ToDouble(Console.ReadLine());
 
             if ((wolf_speed <= 0) || (girl_speed <= 0)) {
-                Console.WriteLine("Cкорость не м.б. <= 0");
-                System.Threading.Thread.Sleep(3000);
-                Environment.Exit(0);
-            } if ((R <= 0)) {
-                Console.WriteLine("Да Вы просто издеваетесь. Ненавижу бессмысленные проверки");
-                System.Threading.Thread.Sleep(3000);
-                Environment.Exit(0);
+                throw new ArgumentException($"Скорость не мб <= 0, ваша - {wolf_speed} {girl_speed}");
+            } if ((R < 0)) {
+                throw new ArgumentException($"R не мб < 0, ваш - {R}");
             }
 
             if ((R * Math.PI) / girl_speed < R * 2 / wolf_speed) {
@@ -141,7 +108,6 @@ namespace MyPracticeWork
             } else {
                 Console.WriteLine("Волк быстрее");
             }
-            Console.ReadKey();
         }
         internal static void third_num() {
             Console.WriteLine("Введите площадь круга");
@@ -150,10 +116,9 @@ namespace MyPracticeWork
             int square_S = Convert.ToInt32(Console.ReadLine());
 
             if ((circle_S < 0) || (square_S < 0)) {
-                Console.WriteLine("Ха-ха-ха");
-                System.Threading.Thread.Sleep(3000);
-                Environment.Exit(0);
-            } if (2 * Math.Sqrt(circle_S / Math.PI) <= Math.Sqrt(square_S)) {
+                throw new ArgumentException($"Показатели не мб < 0, ваши - {circle_S} {square_S}");
+            } 
+            if (2 * Math.Sqrt(circle_S / Math.PI) <= Math.Sqrt(square_S)) {
                 Console.WriteLine("Уместится");
             } else {
                 Console.WriteLine("Нет");
@@ -168,10 +133,10 @@ namespace MyPracticeWork
                 } else if (a % 10 > a / 10) {
                     Console.WriteLine("Вторая цифра числа больше");
                 } else {
-                    Console.WriteLine("Числа одинаковы");
+                    Console.WriteLine("Цифры одинаковы");
                 }
             } else {
-                Console.WriteLine("Число не двузначное");
+                throw new ArgumentException($"Число не двузначное");
             }
         }
         internal static void fifth_num() {
@@ -182,7 +147,7 @@ namespace MyPracticeWork
                               "d - расчёт площади круга");
             string some = Convert.ToString(Console.ReadLine());
 
-            if (some == "a") { // We may use switch-case construction like that: switch(some){ case "a": ...brake}. But... our topic is if constructions
+            if (some == "a") { // We may use switch-case construction like that: switch(some){ case "a": ...brake}. But... our topic is if constructions .... yeah switch-case is also conditional operator, i just hate it
                 Console.WriteLine("Введите сторону квадрата");
                 double a = Convert.ToDouble(Console.ReadLine());
 
@@ -229,7 +194,6 @@ namespace MyPracticeWork
             } else {
                 throw new Exception("Неизвестный аргумент, попробуйте снова. \nUnexpected Error. Page not found 404");
             }
-
         }
         internal static void sixth_num() {
             Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
@@ -404,7 +368,7 @@ namespace MyPracticeWork
             Console.Write("Такс... Слово выбрано, поехали.");
 
             for (int i = 0; i < 10; i++) {
-                Console.WriteLine("\n На брабане буква: ");
+                Console.WriteLine("\n На барабане буква: ");
                 char letter = Convert.ToChar(Console.Read());
                 for (int j = 0; i < word.Length; i++) {
                     if (word[j] == letter) {
@@ -452,6 +416,25 @@ namespace MyPracticeWork
                             Console.WriteLine();
                             break;
 
+                    }
+                }
+            }
+        }
+    }
+
+    internal class Fifth_Practise {
+        internal static void some_num() {
+            int[,] mass = new int[5, 4];
+            Console.WriteLine("Введите 20 значений");
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++) {
+                    mass[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++) {
+                    if (mass[i, j] < 5){
+                        mass[i, j] = 111;
                     }
                 }
             }
