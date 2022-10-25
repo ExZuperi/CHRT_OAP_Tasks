@@ -14,7 +14,7 @@ namespace MyPracticeWork
     internal class Program
     {
         static void Main(string[] args) {
-            Third_Practice.fifth_num();
+            Fourth_Practice.fourth_num();
             Console.ReadKey();
         }
     }
@@ -286,21 +286,21 @@ namespace MyPracticeWork
     }
     internal class Fourth_Practice {
         internal static void first_num() {
-            int[] mass = new int[10];
+            double[] mass = new double[10];
             Console.WriteLine("Введите элементы массива через Enter");
             for (int i = 0; i < 10; i++) {
-                mass[i] = Convert.ToInt32(Console.ReadLine());
+                mass[i] = Convert.ToDouble(Console.ReadLine());
             }
             for (int i = 0; i < 10; i++) {
                 Console.Write(mass[i] + " ");
             }
         }
         internal static void second_num() {
-            int[] mass = new int[10];
+            double[] mass = new double[10];
             Console.WriteLine("Введите первый член прогрессии");
-            int a = Convert.ToInt32(Console.ReadLine());
+            double a = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите разность");
-            int p = Convert.ToInt32(Console.ReadLine());
+            double p = Convert.ToDouble(Console.ReadLine());
 
             for (int i = 0; i < mass.Length; i++) {
                 mass[i] = a + i * p;
@@ -314,15 +314,11 @@ namespace MyPracticeWork
         internal static void third_num() {
             Console.WriteLine("Введите размер массива N");
             int n = Convert.ToInt32(Console.ReadLine());
-            int[] mass = new int[n];
+            double[] mass = new double[n];
 
             Console.WriteLine("Введите элементы массива через Enter");
             for (int i = 0; i < mass.Length; i++) {
-                mass[i] = Convert.ToInt32(Console.ReadLine());
-            }
-
-            for (int i = 0; i < mass.Length; i++) {
-                mass[i] = Math.Abs(mass[i]);
+                mass[i] = Math.Abs(Convert.ToDouble(Console.ReadLine()));
             }
 
             Console.WriteLine("Ваш abs массив - ");
@@ -333,25 +329,23 @@ namespace MyPracticeWork
         internal static void fourth_num() {
             Console.WriteLine("Введите размер массива N");
             int n = Convert.ToInt32(Console.ReadLine());
-            int[] mass = new int[n];
+            double[] mass = new double[n];
 
             Console.WriteLine("Введите элементы массива через Enter");
             for (int i = 0; i < mass.Length; i++) {
-                mass[i] = Convert.ToInt32(Console.ReadLine());
+                mass[i] = Convert.ToDouble(Console.ReadLine());
             }
 
             Console.WriteLine("Введите а");
-            int a = Convert.ToInt32(Console.ReadLine());
+            double a = Convert.ToDouble(Console.ReadLine());
 
-            int s_twenty = 0;
-            int s_a = 0;
+            double s_twenty = 0;
+            double s_a = 0;
+
             for (int i = 0; i < mass.Length; i++) {
                 if (mass[i] <= 20) {
                     s_twenty += mass[i];
                 }
-            }
-
-            for (int i = 0; i < mass.Length; i++) {
                 if (mass[i] > a) {
                     s_a += mass[i];
                 }
