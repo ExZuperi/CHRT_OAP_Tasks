@@ -14,7 +14,7 @@ namespace MyPracticeWork
     internal class Program
     {
         static void Main(string[] args) {
-            Second_Practice.sixth_num();
+            Third_Practice.fifth_num();
             Console.ReadKey();
         }
     }
@@ -212,13 +212,11 @@ namespace MyPracticeWork
         }
         internal static void third_num() {
             float rez = 0F;
-            Console.WriteLine("Введите n >= 2");
+            Console.WriteLine("Введите целое n >= 2");
             int n = Convert.ToInt32(Console.ReadLine());
 
             if (n < 2) {
-                Console.WriteLine("НАПОМНЮ ЧИСЛО ДОЛЖНО БЫТЬ БОЛЬШЕ 2");
-                System.Threading.Thread.Sleep(2000);
-                Environment.Exit(0);
+                throw new ArgumentException($"Число должно быть >= 2. Ваше - {n}");
             }
 
             for (int i = n; i >= 2; i--) {
@@ -227,7 +225,7 @@ namespace MyPracticeWork
             Console.WriteLine(rez);
         }
         internal static void fourth_num() {
-            for (int i = 100; i <= 200; i += 7) {
+            for (int i = 107; i <= 200; i += 7) {
                 Console.WriteLine("Шар под номером - " + i);
             }
         }
@@ -259,8 +257,16 @@ namespace MyPracticeWork
             while (true) {
                 Console.WriteLine("Введите число > 5");
                 int num = Convert.ToInt32(Console.ReadLine());
-                if (num <= 5) {
+
+                if (num == 0) {
+                    Console.WriteLine("La commedia è finita \n" +
+                                      "Program was stopped, thx for using");
+                    break;
+                }
+
+                if ((num <= 5) && (flag)) {
                     Console.WriteLine("More than 5 pls");
+                    continue;
                 }
 
                 if (num == 22) {
@@ -268,11 +274,6 @@ namespace MyPracticeWork
                     continue;
                 }
 
-                if (num == 0) {
-                    Console.WriteLine("La commedia è finita \n" +
-                                      "Program was stopped, thx for using");
-                    break;
-                }
 
                 if (flag) {
                     for (int i = 1; i <= num; i++) {
