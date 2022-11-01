@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Security.Authentication;
 using System.Security.Policy;
 using System.Text;
@@ -14,7 +15,7 @@ namespace MyPracticeWork
     internal class Program
     {
         static void Main(string[] args) {
-            Fourth_Practice.fourth_num();
+            Fifth_Practice.fourth_num();
             Console.ReadKey();
         }
     }
@@ -416,23 +417,231 @@ namespace MyPracticeWork
             }
         }
     }
-
-    internal class Fifth_Practise {
-        internal static void some_num() {
+    internal class Fifth_Practice {
+        internal static void first_num() {
             int[,] mass = new int[5, 4];
-            Console.WriteLine("Введите 20 значений");
+            Console.WriteLine("Выберите способ заполнения массива:\n" +
+                              "'1' - С клавиатуры\n" +
+                              "'2' - Через Random");
+            int some = Convert.ToInt32(Console.ReadLine());
+
+            switch (some) {
+                case 1:
+                    Console.WriteLine("Введите 20 значений через Enter");
+                    for (int i = 0; i < 5; i++) {
+                        for (int j = 0; j < 4; j++) {
+                            mass[i, j] = Convert.ToInt32(Console.ReadLine());
+                        }
+                    }
+                break;
+
+                case 2:
+                    Random rnd = new Random();
+                    Console.WriteLine("Ваш первоначальный rnd массив - ");
+                    for (int i = 0; i < 5; i++) {
+                        for (int j = 0; j < 4; j++) {
+                            mass[i, j] = rnd.Next(10);
+                            Console.Write(mass[i, j] + " ");
+                        }
+                        Console.WriteLine();
+                    }
+                break;
+            }
+
+            Console.WriteLine("Ваш изменённый массив - ");
             for (int i = 0; i < 5; i++) {
                 for (int j = 0; j < 4; j++) {
-                    mass[i, j] = Convert.ToInt32(Console.ReadLine());
+                    if (mass[i, j] < 5) {
+                            mass[i, j] = 111;
+                    }
+                    Console.Write(mass[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+        internal static void second_num() {
+            int[,] mass = new int[4, 5];
+            bool flag = false;
+            string line = "";
+            Console.WriteLine("Выберите способ заполнения массива:\n" +
+                  "'1' - С клавиатуры\n" +
+                  "'2' - Через Random");
+            int some = Convert.ToInt32(Console.ReadLine());
+
+            switch (some) {
+                case 1:
+                    Console.WriteLine("Введите 20 значений через Enter");
+                    for (int i = 0; i < 4; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            mass[i, j] = Convert.ToInt32(Console.ReadLine());
+                        }
+                    }
+                    break;
+
+                case 2:
+                    Random rnd = new Random();
+                    Console.WriteLine("Ваш первоначальный rnd массив - ");
+                    for (int i = 0; i < 4; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            mass[i, j] = rnd.Next(11);
+                            Console.Write(mass[i, j] + " ");
+                        }
+                        Console.WriteLine();
+                    }
+                    break;
+            }
+
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 5; j++) {
+                    if (mass[i, j] == 10) {
+                        flag = true;
+                    }
+                }
+                if (flag) {
+                    line += $"{i+1}" + " ";
+                    flag = false;
                 }
             }
+
+            if (line != "") {
+                Console.WriteLine($"Строкa/и в которых есть 10 - {line}(не индекс строк/и)");
+            } else {
+                Console.WriteLine("Во всём массиве нет строк с 10");
+            }
+            
+        }
+        internal static void third_num() {
+            double[,] mass = new double[5, 5];
+            Console.WriteLine("Выберите способ заполнения массива:\n" +
+                              "'1' - С клавиатуры\n" +
+                              "'2' - Через Random");
+            int some = Convert.ToInt32(Console.ReadLine());
+
+            switch (some) {
+                case 1:
+                    Console.WriteLine("Введите 25 значений через Enter");
+                    for (int i = 0; i < 5; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            mass[i, j] = Convert.ToDouble(Console.ReadLine());
+                        }
+                    }
+                    break;
+
+                case 2:
+                    Random rnd = new Random();
+                    Console.WriteLine("Ваш первоначальный rnd массив - ");
+                    for (int i = 0; i < 5; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            mass[i, j] = Math.Round(rnd.NextDouble() + 0.01 * 100, 2);
+                            Console.Write(mass[i, j] + " ");
+                        }
+                        Console.WriteLine();
+                    }
+                    break;
+            }
+            Console.WriteLine();
+            Console.WriteLine("Новый массив - ");
             for (int i = 0; i < 5; i++) {
-                for (int j = 0; j < 4; j++) {
-                    if (mass[i, j] < 5){
-                        mass[i, j] = 111;
+                for (int j = 0; j < 5; j++) {
+                    Console.Write($"{Math.Round(Convert.ToDouble(mass[i, j]) / mass[i, 0], 2)} ");
+                }
+                Console.WriteLine();
+            }
+
+        }
+        internal static void fourth_num() {
+            Console.WriteLine("Введите размер квадратного массива (n*n) >= 1");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            double[,] mass = new double[n, n];
+            Console.WriteLine("\nВыберите способ заполнения массива:\n" +
+                              "'1' - С клавиатуры\n" +
+                              "'2' - Через Random");
+            int some = Convert.ToInt32(Console.ReadLine());
+
+            switch (some) {
+
+                case 1:
+                    Console.WriteLine($"\nВведите {n * n} значений через Enter");
+                    for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < n; j++) {
+                            mass[i, j] = Convert.ToDouble(Console.ReadLine());
+                        }
+                    }
+                break;
+
+                case 2:
+                    Random rnd = new Random(100);
+                    Console.WriteLine("\nВаш первоначальный rnd массив - ");
+                    for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < n; j++) {
+                            mass[i, j] = Math.Round((rnd.NextDouble() - 0.5) * 100, 2);
+                            Console.Write(mass[i, j] + " ");
+                        }
+                        Console.WriteLine();
+                    }
+               break;
+            }
+
+            //Finding Max Value in mass
+            double maxNum = mass[0, 0];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (mass[i, j] >= maxNum) {
+                        maxNum = mass[i, j];
                     }
                 }
             }
+
+            //Is it any numbers >= 0?
+            if (maxNum < 0) {
+                Console.WriteLine("В массиве нет положительных чисел, попробуйте ещё раз");
+                Environment.Exit(1);
+            }
+
+            //Finding min number >= 0
+            double minPol = maxNum;
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if ((mass[i, j] >= 0) && (mass[i, j] <= minPol)) {
+                        minPol = mass[i, j];
+                    }
+                }
+            }
+            Console.WriteLine($"\nМинимальное положительное число - {minPol}");
+
+            //Making copy of array
+            double[,] reversedMass = new double[n,n];
+            Array.Copy(mass, reversedMass, n*n);
+
+            //Finding column and line with minNum 
+            int line = 0;
+            int column = 0;
+            for (int i = 0; i < n; i++) {
+                for(int j = 0; j < n; j++) {
+                    if (mass[i, j] == minPol) {
+                        line = i;
+                        column = j;
+                        i = n; //Breaking 2 fors
+                    }
+                }
+            }
+
+            //Reversing elements
+            for (int i = 0; i < n; i++) {
+                reversedMass[i, column] = mass[line, i];
+                reversedMass[line, i] = mass[i, column];
+            }
+
+            //Printing reversedMass
+            Console.WriteLine("\nМассив с обменянными строкой и столбцом");
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    Console.Write(reversedMass[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Внимание! Сначала меняется строка, а затем столбец. Возможны наложения");
         }
     }
 }
