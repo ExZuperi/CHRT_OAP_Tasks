@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -15,11 +16,10 @@ namespace MyPracticeWork
     internal class Program
     {
         static void Main(string[] args) {
-            Fifth_Practice.fourth_num();
+            Sixth_Practice.fourth_num();
             Console.ReadKey();
         }
     }
-
     internal class First_Practice {
         internal static void first_num() {
             Console.WriteLine("Введите сторону a > 0");
@@ -446,6 +446,11 @@ namespace MyPracticeWork
                         Console.WriteLine();
                     }
                 break;
+
+                default:
+                    Console.WriteLine("Неправильный выбор");
+                    Environment.Exit(1);
+                    break;
             }
 
             Console.WriteLine("Ваш изменённый массив - ");
@@ -488,6 +493,11 @@ namespace MyPracticeWork
                         }
                         Console.WriteLine();
                     }
+                    break;
+
+                default:
+                    Console.WriteLine("Неправильный выбор");
+                    Environment.Exit(1);
                     break;
             }
 
@@ -538,6 +548,11 @@ namespace MyPracticeWork
                         Console.WriteLine();
                     }
                     break;
+
+                default:
+                    Console.WriteLine("Неправильный выбор");
+                    Environment.Exit(1);
+                    break;
             }
             Console.WriteLine();
             Console.WriteLine("Новый массив - ");
@@ -580,7 +595,12 @@ namespace MyPracticeWork
                         }
                         Console.WriteLine();
                     }
-               break;
+                break;
+               
+                default:
+                    Console.WriteLine("Неправильный выбор");
+                    Environment.Exit(1);
+                    break;
             }
 
             //Finding Max Value in mass
@@ -644,4 +664,154 @@ namespace MyPracticeWork
             Console.WriteLine("Внимание! Сначала меняется строка, а затем столбец. Возможны наложения");
         }
     }
+    internal class Sixth_Practice {
+        internal static void first_num() {
+            ArrayList list = new ArrayList();
+            Random rnd = new Random();
+            Console.WriteLine("Введите n - кол-во человек");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("\nВаш список - ");
+            for (int i = 0; i < n; i++) {
+                list.Add(rnd.Next(50, 101));
+                Console.Write($"{list[i]} ");
+            }
+        }
+        internal static void second_num() {
+            Queue queue = new Queue();
+            Console.WriteLine("Введите n - кол-во элементов");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Random rnd = new Random();
+            for (int i = 0; i < n; i++) {
+                double cash = Math.Round(rnd.NextDouble() + 22, 2);
+                Console.Write(cash + " ");
+                queue.Enqueue(cash);
+            }
+
+            Console.WriteLine("\n\nВведите k");
+            double k = Convert.ToDouble(Console.ReadLine());
+
+            if (queue.Contains(k)) {
+                Console.WriteLine("\nЕсть");
+            } else {
+                Console.WriteLine("\nНет");
+            }
+        }
+        internal static void third_num() {
+            Console.WriteLine("Введите количество элементов массива");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            double[] mass = new double[n];
+            Stack stck = new Stack();
+
+            Console.WriteLine("\n'1' - Ввод чисел через клавиатуру\n" +
+                              "'2' - Ввод чисел через Random");
+            int some = Convert.ToInt32(Console.ReadLine());
+            switch (some) {
+                case 1:
+                    Console.WriteLine("Вводите числа через Enter");
+                    for (int i = 0; i < n; i++) {
+                        mass[i] = Convert.ToDouble(Console.ReadLine());
+                        if (i % 2 == 0) {
+                            mass[i] *= 2;
+                        } else {
+                            mass[i] -= 1;
+                        }
+                        stck.Push(mass[i]);
+                    }
+                    break;
+
+                case 2:
+                    Random rnd = new Random();
+                    for (int i = 0; i < n; i++) {
+                        mass[i] = Math.Round(rnd.NextDouble() * 100, 2);
+                        Console.Write(mass[i] + " ");
+                        if (i % 2 == 0) {
+                            mass[i] *= 2;
+                        } else {
+                            mass[i] -= 1;
+                        }
+                        stck.Push(mass[i]);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Неправильный выбор");
+                    Environment.Exit(1);
+                    break;
+            }
+
+            Console.WriteLine("\n\nПосле умножения и вычитания:\n");
+            for (int i = 0; i < mass.Length; i++) {
+                Console.Write(mass[i] + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("\nВведите 10 чисел которые нужно добавить через Enter");
+            for (int i = 0; i < 10; i++) {
+                stck.Push(Convert.ToDouble(Console.ReadLine()));
+            }
+
+            Console.WriteLine("\nВаш стек - ");
+            for (int i = 0; i < 10 + n; i++) {
+                Console.Write(stck.Pop() + " ");
+            }
+
+
+        }
+        internal static void fourth_num() {
+            Dictionary<string, double> dct =
+        new Dictionary<string, double>();
+            Random rnd = new Random();
+
+            Console.WriteLine("Выберите способ заполнения словаря:\n" +
+                              "'1' - С клавиатуры\n" +
+                              "'2' - Через Random");
+            int some = Convert.ToInt32(Console.ReadLine());
+
+            switch (some) {
+                case 1:
+                    Console.WriteLine("\nВведите 10 значений через Enter");
+                    for (int i = 1; i <= 10; i++) {
+                        dct.Add($"Candy {i}", Convert.ToDouble(Console.ReadLine()));
+                    }
+                    break;
+
+                case 2:
+                    for (int i = 1; i <= 10; i++) {
+                        dct.Add($"Candy {i}", Math.Round((rnd.NextDouble() + 0.1) * 100, 2));
+                        Console.WriteLine(dct[$"Candy {i}"]);
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("Неправильный выбор");
+                    Environment.Exit(1);
+                    break;
+            }
+
+            //Finding min price
+            double min_price = dct["Candy 1"];
+            for (int i = 1; i <= 10; i++) {
+                if (min_price > dct[$"Candy {i}"]) {
+                    min_price = dct[$"Candy {i}"];
+                }
+            }
+
+            //Finding names of candies with min price
+            string names = "";
+            string cache = "";
+            bool flag = true;
+            for (int i = 1; i <= 10; i++) {
+                if (min_price == dct[$"Candy {i}"]) {
+                    if (flag) {
+                        names += $"Candy {i}";
+                        flag = false;
+                    } else {
+                        cache = $" и Candy {i}";
+                    }
+                }
+            }
+            Console.WriteLine($"\nСамые дешёвые конфеты - {names + cache}");
+        }
+    }
 }
+
+//TODO: Make try-catch
