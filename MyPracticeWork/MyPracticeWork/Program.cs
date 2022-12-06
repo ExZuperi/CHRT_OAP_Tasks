@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
@@ -15,20 +16,20 @@ namespace MyPracticeWork
 {
     internal class Program
     {
-        static void Main(string[] args) {
-            Sixth_Practice.fourth_num();
+        static void Main() {
+            Tenth_Practice.Fourth_Num();
             Console.ReadKey();
         }
     }
     internal class First_Practice {
-        internal static void first_num() {
+        internal static void First_Num() {
             Console.WriteLine("Введите сторону a > 0");
             double a = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите сторону b > 0");
             double b = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine($"Площадь - {a * b}, периметр - {(a + b) * 2}");
         }
-        internal static void second_num() {
+        internal static void Second_Num() {
             Console.WriteLine("Введите скорость первого авто");
             double First_Speed = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите скорость второго авто");
@@ -39,26 +40,26 @@ namespace MyPracticeWork
             double hours = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine($"Расстояни между ними через {hours} час/а - {way + First_Speed * hours + Second_Speed * hours} км");
         }
-        internal static void third_num() {
+        internal static void Third_Num() {
             Console.WriteLine("Введите радиус шара >= 0");
             double R = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine($"Объём шара - {4F / 3F * Math.PI * (Math.Pow(R, 3))}");
         }
-        internal static void fourth_num() {
+        internal static void Fourth_Num() {
             Console.WriteLine("Введите x - не равный 0");
             double x = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите y");
             double y = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine($"Z = {(x + ((2 + y) / (x * x))) / (y + (1 / (Math.Sqrt(Math.Pow(x, 2) + 10))))}");
         }
-        internal static void fifth_num() {
+        internal static void Fifth_Num() {
             Console.WriteLine("Введите количество секунд");
             int n = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine($"Полных часов прошло - {n / 60 / 60}");
         }
     }
     internal class Second_Practice {
-        internal static void first_num() {
+        internal static void First_Num() {
             Console.WriteLine("Введите рост ученика a");
             double a = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите рост ученика b");
@@ -88,7 +89,7 @@ namespace MyPracticeWork
             Console.WriteLine($"Самый высокий/е ученики - {s}с ростом {maxNum}");
 
         }
-        internal static void second_num() {
+        internal static void Second_Num() {
             Console.WriteLine("Введите радиус круга");
             double R = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите скорость волка");
@@ -110,7 +111,7 @@ namespace MyPracticeWork
                 Console.WriteLine("Волк быстрее");
             }
         }
-        internal static void third_num() {
+        internal static void Third_Num() {
             Console.WriteLine("Введите площадь круга");
             int circle_S = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите площадь квадрата");
@@ -125,7 +126,7 @@ namespace MyPracticeWork
                 Console.WriteLine("Нет");
             }
         }
-        internal static void fourth_num() {
+        internal static void Fourth_Num() {
             Console.WriteLine("Введите двузначное число");
             int a = Convert.ToInt32(Math.Floor(Math.Abs(Convert.ToDouble(Console.ReadLine()))));
             if ((a >= 10 && a < 100) || (a <= -10 && a > -100)){
@@ -140,7 +141,7 @@ namespace MyPracticeWork
                 throw new ArgumentException($"Число не двузначное");
             }
         }
-        internal static void fifth_num() {
+        internal static void Fifth_Num() {
             Console.WriteLine("Введите аргумент\n" +
                               "a - расчет площади квадрата\n" +
                               "b - расчёт площади треугольника\n" +
@@ -196,22 +197,19 @@ namespace MyPracticeWork
                 throw new Exception("Неизвестный аргумент, попробуйте снова. \nUnexpected Error. Page not found 404");
             }
         }
-        internal static void sixth_num() {
-            Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-        }
     }
     internal class Third_Practice {
-        internal static void first_num() {
+        internal static void First_Num() {
             for (int i = 2; i <= 200; i += 2) {
                 Console.Write(i + " ");
             }
         }
-        internal static void second_num() {
+        internal static void Second_Num() {
             for (int i = 10; i <= 150; i += 10) {
                 Console.WriteLine(i);
             }
         }
-        internal static void third_num() {
+        internal static void Third_Num() {
             float rez = 0F;
             Console.WriteLine("Введите целое n >= 2");
             int n = Convert.ToInt32(Console.ReadLine());
@@ -225,12 +223,12 @@ namespace MyPracticeWork
             }
             Console.WriteLine(rez);
         }
-        internal static void fourth_num() {
+        internal static void Fourth_Num() {
             for (int i = 107; i <= 200; i += 7) {
                 Console.WriteLine("Шар под номером - " + i);
             }
         }
-        internal static void fifth_num() {
+        internal static void Fifth_Num() {
             Console.WriteLine("Введите количество вводимых чисел (n)");
             int n = Convert.ToInt32(Console.ReadLine());
 
@@ -253,7 +251,7 @@ namespace MyPracticeWork
                               $"Отрицательных чисел - {minus}\n" +
                               $"Нулей - {zeroes}");
         }
-        internal static void sixth_num() {
+        internal static void Sixth_Num() {
             bool flag = true;
             while (true) {
                 Console.WriteLine("Введите число > 5");
@@ -286,7 +284,7 @@ namespace MyPracticeWork
         }
     }
     internal class Fourth_Practice {
-        internal static void first_num() {
+        internal static void First_Num() {
             double[] mass = new double[10];
             Console.WriteLine("Введите элементы массива через Enter");
             for (int i = 0; i < 10; i++) {
@@ -296,7 +294,7 @@ namespace MyPracticeWork
                 Console.Write(mass[i] + " ");
             }
         }
-        internal static void second_num() {
+        internal static void Second_Num() {
             double[] mass = new double[10];
             Console.WriteLine("Введите первый член прогрессии");
             double a = Convert.ToDouble(Console.ReadLine());
@@ -312,7 +310,7 @@ namespace MyPracticeWork
                 Console.Write(mass[i] + " ");
             }
         }
-        internal static void third_num() {
+        internal static void Third_Num() {
             Console.WriteLine("Введите размер массива N");
             int n = Convert.ToInt32(Console.ReadLine());
             double[] mass = new double[n];
@@ -327,7 +325,7 @@ namespace MyPracticeWork
                 Console.Write(mass[i] + " ");
             }
         }
-        internal static void fourth_num() {
+        internal static void Fourth_Num() {
             Console.WriteLine("Введите размер массива N");
             int n = Convert.ToInt32(Console.ReadLine());
             double[] mass = new double[n];
@@ -354,71 +352,10 @@ namespace MyPracticeWork
             Console.WriteLine($"Сумма элементов <= 20 - {s_twenty}");
             Console.WriteLine($"Сумма элементов > a({a}) - {s_a}");
         }
-        internal static void fifth_num() {
-            string word = "копол";
-            string secret_word = "*****";
-            // TODO: Make random generation of word, with parsing of site
-            bool flag = false;
 
-            Console.WriteLine("Играем в виселицу!");
-            Console.Write("Такс... Слово выбрано, поехали.");
-
-            for (int i = 0; i < 10; i++) {
-                Console.WriteLine("\n На барабане буква: ");
-                char letter = Convert.ToChar(Console.Read());
-                for (int j = 0; i < word.Length; i++) {
-                    if (word[j] == letter) {
-                        secret_word = secret_word.Remove(i, 1).Insert(i, letter.ToString());
-                    }
-                }
-                if (flag) {
-                    Console.WriteLine($"ОТКРОЙТЕ БУКВУ {letter} - {secret_word}");
-                    i--;
-                    continue;
-                } else {
-                    switch (i) {
-                        case 0:
-                            Console.WriteLine("----" +
-                                              "    o" +
-                                              "|   |" +
-                                              "|   O" +
-                                              "|   ");
-                            break;
-                        case 1:
-                            Console.WriteLine();
-                            break;
-                        case 2:
-                            Console.WriteLine();
-                            break;
-                        case 3:
-                            Console.WriteLine();
-                            break;
-                        case 4:
-                            Console.WriteLine();
-                            break;
-                        case 5:
-                            Console.WriteLine();
-                            break;
-                        case 6:
-                            Console.WriteLine();
-                            break;
-                        case 7:
-                            Console.WriteLine();
-                            break;
-                        case 8:
-                            Console.WriteLine();
-                            break;
-                        case 9:
-                            Console.WriteLine();
-                            break;
-
-                    }
-                }
-            }
-        }
     }
     internal class Fifth_Practice {
-        internal static void first_num() {
+        internal static void First_Num() {
             int[,] mass = new int[5, 4];
             Console.WriteLine("Выберите способ заполнения массива:\n" +
                               "'1' - С клавиатуры\n" +
@@ -464,7 +401,7 @@ namespace MyPracticeWork
                 Console.WriteLine();
             }
         }
-        internal static void second_num() {
+        internal static void Second_Num() {
             int[,] mass = new int[4, 5];
             bool flag = false;
             string line = "";
@@ -520,7 +457,7 @@ namespace MyPracticeWork
             }
             
         }
-        internal static void third_num() {
+        internal static void Third_Num() {
             double[,] mass = new double[5, 5];
             Console.WriteLine("Выберите способ заполнения массива:\n" +
                               "'1' - С клавиатуры\n" +
@@ -564,7 +501,7 @@ namespace MyPracticeWork
             }
 
         }
-        internal static void fourth_num() {
+        internal static void Fourth_Num() {
             Console.WriteLine("Введите размер квадратного массива (n*n) >= 1");
             int n = Convert.ToInt32(Console.ReadLine());
 
@@ -665,7 +602,7 @@ namespace MyPracticeWork
         }
     }
     internal class Sixth_Practice {
-        internal static void first_num() {
+        internal static void First_Num() {
             ArrayList list = new ArrayList();
             Random rnd = new Random();
             Console.WriteLine("Введите n - кол-во человек");
@@ -676,7 +613,7 @@ namespace MyPracticeWork
                 Console.Write($"{list[i]} ");
             }
         }
-        internal static void second_num() {
+        internal static void Second_Num() {
             Queue queue = new Queue();
             Console.WriteLine("Введите n - кол-во элементов");
             int n = Convert.ToInt32(Console.ReadLine());
@@ -696,7 +633,7 @@ namespace MyPracticeWork
                 Console.WriteLine("\nНет");
             }
         }
-        internal static void third_num() {
+        internal static void Third_Num() {
             Console.WriteLine("Введите количество элементов массива");
             int n = Convert.ToInt32(Console.ReadLine());
 
@@ -756,7 +693,7 @@ namespace MyPracticeWork
 
 
         }
-        internal static void fourth_num() {
+        internal static void Fourth_Num() {
             Dictionary<string, double> dct =
         new Dictionary<string, double>();
             Random rnd = new Random();
@@ -812,6 +749,192 @@ namespace MyPracticeWork
             Console.WriteLine($"\nСамые дешёвые конфеты - {names + cache}");
         }
     }
-}
+    internal class Seventh_Practice {
+        internal static void First_Num() {
+            Console.WriteLine("Введите имя");
+            string name = Console.ReadLine();
+            Console.WriteLine("Введите фамилию");
+            string surname = Console.ReadLine();
+            Console.WriteLine($"\n{name} {surname}");
+        }
+        internal static void Second_Num() {
+            Console.WriteLine("Введите название футбольного клуба");
+            string club = Console.ReadLine();
+            Console.WriteLine($"\nВ названии {club.Length} символа/ов");
+        }
+        internal static void Third_Num() {
+            Console.WriteLine("Введите слово");
+            string word = Console.ReadLine();
 
-//TODO: Make try-catch
+            Console.WriteLine("Введите n");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите m");
+            int m = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"\nБуквы слова начиная с {n} и заканчивая {m} включительно:");
+            Console.WriteLine($"{word.Substring(n - 1, m - n + 1)}");
+        }
+        internal static void Fourth_Num() {
+            Console.WriteLine("Введите слово");
+            string word = Console.ReadLine();
+            Console.WriteLine(word.Substring(word.Length / 2, word.Length / 2) + word.Substring(0, word.Length / 2));
+        }
+        internal static void Fifth_Num() {
+            Console.WriteLine("Введите слово");
+            string word = Console.ReadLine();
+            Console.WriteLine("\nКаждая 3-ая буква:");
+            for (int i = 2; i < word.Length; i += 3) {
+                Console.WriteLine(word.Substring(i, 1));
+            }
+        }
+        internal static void Sixth_Num() {
+            Console.WriteLine("Введите предложение");
+            string sentence = Console.ReadLine();
+            string[] words = sentence.Split(' ');
+            string longest = words[0];
+            foreach (string element in words)
+                if (longest.Length < element.Length) longest = element;
+            Console.WriteLine($"\nСамое длинное слово: {longest}");
+        }
+    }
+    internal class Eigth_Practice {
+        internal static void First_Num() {
+            File.AppendAllText("test/test.txt", "Hello, World!");
+        }
+        internal static void Second_Num() {
+            Console.WriteLine("Введите путь до файла");
+            string path = Console.ReadLine();
+            if (File.Exists(path)) {
+                string[] lines = File.ReadAllLines(path);
+                for (int i = 0; i < lines.Length; i++) 
+                    if (lines[i].Contains(":")) 
+                        Console.WriteLine($"Длина {i+1} строки: {lines[i].Length} символ/а/ов");
+            } else Console.WriteLine("Такого файла нет.");
+        }
+        internal static void Third_Num() {
+            Console.WriteLine("Введите путь до файла");
+            string path = Console.ReadLine();
+            if (File.Exists(path)) {
+                string[] lines = File.ReadAllLines(path);
+                foreach (string line in lines)
+                    if (line.StartsWith("Т")) Console.WriteLine(line);
+            } else Console.WriteLine("Такого файла нет.");
+        }
+        internal static void Fourth_Num() {
+            Console.WriteLine("Введите путь до файла");
+            string path = Console.ReadLine();
+            if (File.Exists(path)) {
+                File.Copy(path, path.Insert(path.Length - 4, "Copy")); 
+                Console.WriteLine("\nПуть до файла:\n" + path.Insert(path.Length - 4, "Copy"));
+            } else Console.WriteLine("Такого файла нет.");
+        }
+    }
+    internal class Nineth_Practice {
+        internal static void First_Num() {
+            try {
+                Console.Write("Введите вес картофеля в кг: "); double potatoes = Convert.ToDouble(Console.ReadLine());
+                Console.Write("\nВведите вес огурцов в кг: "); double cucumbers = Convert.ToDouble(Console.ReadLine());
+                Console.Write("\nВведите вес томатов в кг: "); double tomatoes = Convert.ToDouble(Console.ReadLine());
+                if (potatoes + cucumbers + tomatoes <= 10) {
+                    Console.WriteLine("Выдержат");
+                } else Console.WriteLine("Не выдержат");
+            } catch (FormatException) {
+                Console.WriteLine("Это явло не вес, весы не были к такому готовы.");
+            }
+        }
+        internal static void Second_Num() {
+            try {
+                double money_first = 1000;
+                double money_second = 1000;
+                Console.Write("N% годовых 1-ого банка: "); double n = Convert.ToDouble(Console.ReadLine());
+                if (n >= 3) {
+                    Console.WriteLine("Никогда");
+                    Thread.Sleep(2000);
+                    Environment.Exit(1);
+                }
+                for (int years = 0; true; years++,
+                                          money_first += money_first / 100 * n,
+                                          money_second += money_first / 30) {
+                    if (money_first + 100 <= money_second) {
+                        Console.WriteLine($"Через {years} год/года/лет");
+                        break;
+                    }
+                }
+            } catch (FormatException) {
+                Console.WriteLine("Гуриев был бы в шоке");
+            }
+}
+        internal static void Third_Num() {
+            try {
+                Console.Write("Введите размер массива: ");
+                int n = Convert.ToInt32(Console.ReadLine());
+                double[] mass = new double[n];
+                Random rnd = new Random();
+
+                Console.WriteLine("\nВаш массив:\n");
+                for (int i = 0; i < n; i++) {
+                    mass[i] = Math.Round(rnd.NextDouble() * 10, 2); Console.Write(mass[i] + " ");
+                }
+            } catch (FormatException) {
+                Console.WriteLine("\nВведите целочисленное значение.");
+            } catch (OverflowException) {
+                Console.WriteLine("\nА ещё положительные числа, pls.");
+            }
+        }
+        internal static void Fourth_Num() {
+            try {
+                Console.Write("Введите слово: ");
+                string word = Console.ReadLine();
+                Console.Write("Введите индекс начала подстроки(m): ");
+                int m = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Введите номер конца подстроки(n): ");
+                int n = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("\n" + word.Substring(m, n - m));
+            } catch (FormatException){
+                Console.WriteLine("\nТак нельзя введите нормальное число");
+            } catch (ArgumentOutOfRangeException) {
+                Console.WriteLine("\nТак тоже, в программе делается n - m");
+            }
+        }
+    }
+    internal class Tenth_Practice {
+        internal static void First_Num() {
+            Console.WriteLine($"Сейчас: {DateTime.Now.ToShortDateString()}" +
+                            $"\nДата через 5 лет 3 дня: {DateTime.Now.AddDays(3).AddYears(5).ToShortDateString()}");
+        }
+        internal static void Second_Num() {
+            Console.WriteLine($"Сейчас: {DateTime.Now}" +
+                              $"\nДата и время 6 часов и 5 минут назад: {DateTime.Now.AddHours(-6).AddMinutes(-5)}");
+        }
+        internal static void Third_Num() {
+            try {
+                Console.Write("Введите дату: "); DateTime date = DateTime.Parse(Console.ReadLine());
+
+                Console.WriteLine($"\nCколько дней прошло с этой даты с начала года этой даты: {date.DayOfYear}");
+            } catch (FormatException) {
+                Console.WriteLine("Кажется Майя были правы...");
+            }
+        }
+        internal static void Fourth_Num() {
+            try {
+                Console.Write("Введите дату: "); DateTime date = DateTime.Parse(Console.ReadLine());
+
+                Console.WriteLine(date.ToString("d"));
+            } catch (FormatException) {
+                Console.WriteLine("\nИли не были...\n" +
+                                  "Интересный факт: попробуйте ввести только время");
+            }
+        }
+    }
+    internal class Eleventh_Practice {
+        internal static void First_Num() {
+        }
+        internal static void Second_Num() {
+        }
+        internal static void Third_Num() {
+        }
+        internal static void Fourth_Num() {
+        }
+        internal static void Fifth_Num() {
+        }
+    }
+}
